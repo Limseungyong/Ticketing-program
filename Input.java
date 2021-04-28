@@ -26,9 +26,22 @@ public class Input {
 	// 주문 갯수 입력
 	public static int inputOrderCount() {
 		
-		System.out.printf("몇개를 주문하시겠습니까? (최대 10개)\n");
-		int w = s.nextInt();
+		int w = 0;
+		while (true) {
+			System.out.printf("몇개를 주문하시겠습니까? (최대 10개)\n");
+			w = s.nextInt();
+			if ( w <  Constant.min_count || w > Constant.max_count) {
+			System.out.printf("티켓은 1장 이상 최대 10장까지만 구매 가능합니다.\n");
+			} else if ( Constant.min_count <= w && w <= Constant.max_count) {
+				break;
+			}
+		}		
 		return w;
+	}
+	
+	public static int correctOrderCount(int w) {
+		return w;
+		
 	}
 		
 	// 우대사항 입력
@@ -51,15 +64,9 @@ public class Input {
 		System.out.printf("1. 티켓 발권\n");
 		System.out.printf("2. 종료\n");
 		int w = s.nextInt();
-		if (w == 1) {
-			selectTicket();
+		if (w == 2) {
+			System.out.printf("티켓 발권을 종료합니다. 감사합니다\n\n");
 		}
-		return w;
-		
-	}
-	
-	
-	// 입력 함수 호출
-	
-	
+		return w;		
+	}	
 }

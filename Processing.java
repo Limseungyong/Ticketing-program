@@ -3,8 +3,7 @@ package ticketingprogram;
 import java.util.Calendar;
 
 public class Processing {
-	
-	
+		
 	// 만나이 계산
 	static int calcAge(String inputIDNumber) {
 		
@@ -59,47 +58,47 @@ public class Processing {
 	}
 
 	// 연령대 별 분류
-	static int ageGroup(int age) {		
-		int groupNum = 0;
+	static String ageGroup(int age) {		
+		String group = "";
 		if (Constant.min_baby <= age && age < Constant.min_child) {
-			groupNum = Constant.baby;
+			group = Constant.baby;
 		} else if (Constant.min_child <= age && age < Constant.min_teen) {
-			groupNum = Constant.child;
+			group = Constant.child;
 		} else if (Constant.min_teen <= age && age < Constant.min_adult) {
-			groupNum = Constant.teen;
+			group = Constant.teen;
 		} else if (Constant.min_adult <= age && age <= Constant.max_adult) {
-			groupNum = Constant.adult;
+			group = Constant.adult;
 		} else if (age > Constant.max_adult) {
-			groupNum = Constant.old;
+			group = Constant.old;
 		}
-		return groupNum;
+		return group;
 	}
 	
 	// 주야권과 나이에 따른 금액 계산
-	static int ticketPrice(int ticketType, int groupNum) {
+	static int ticketPrice(int ticketType, String group) {
 		int price = 0;
 		if (ticketType == 1) {
-			if (groupNum == 1) {
+			if (group.equals("신생아")) {
 				price = 0;
-			} else if (groupNum == 2) {
+			} else if (group.equals("아이")) {
 				price = 44000;
-			} else if (groupNum == 3) {
+			} else if (group.equals("청소년")) {
 				price = 47000;
-			} else if (groupNum == 4) {
+			} else if (group.equals("어른")) {
 				price = 56000;
-			} else if (groupNum == 5) {
+			} else if (group.equals("노인")) {
 				price = 44000;
 			}			
 		} else if (ticketType == 2) {
-			if (groupNum == 1) {
+			if (group.equals("신생아")) {
 				price = 0;
-			} else if (groupNum == 2) {
+			} else if (group.equals("아이")) {
 				price = 37000;
-			} else if (groupNum == 3) {
+			} else if (group.equals("청소년")) {
 				price = 40000;
-			} else if (groupNum == 4) {
+			} else if (group.equals("어른")) {
 				price = 46000;
-			} else if (groupNum == 5) {
+			} else if (group.equals("노인")) {
 				price = 37000;
 			}		
 		}
@@ -107,7 +106,7 @@ public class Processing {
 	}
 		
 	// 우대사항에 따른 할인 계산
-	static double priceDiscount(int discountType, int price) {
+	static int priceDiscount(int discountType, int price) {
 		double discountedPrice = 0;
 		if (discountType == 1) {
 			discountedPrice = (double)price;
@@ -120,16 +119,32 @@ public class Processing {
 		} else if (discountType == 5) {
 			discountedPrice = price * Constant.pregnant_rate;
 		}
-		return discountedPrice;
+		return (int)discountedPrice;
 	}	
 	
 	// 주문 갯수에 따른 금액 계산
-	static double finalPrice(int discountedPrice, int count) {
-		double finalprice = discountedPrice * count;
+	static int finalPrice(int discountedPrice, int count) {
+		int finalprice = discountedPrice * count;
 		return finalprice;
 	}
 	
-	
+	//우대사항 출력
+	static String discountType(int discountTypeNum) {
+		String str = "";
+		if (discountTypeNum == 1) {
+			str = "우대적용 없음";
+		} else if (discountTypeNum == 2) {
+			str = "장애인 우대적용";
+		} else if (discountTypeNum == 3) {
+			str = "국가유공자 우대적용";
+		} else if (discountTypeNum == 4) {
+			str = "다자녀 우대적용";
+		} else if (discountTypeNum == 5) {
+			str = "임산부 우대적용";
+		}
+		return str;
+	}
+		
 	// 계산 함수 호출
 	
 	

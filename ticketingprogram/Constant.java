@@ -2,7 +2,7 @@ package ticketingprogram;
 
 public class Constant {
 	
-	// ±ÇÁ¾º° °¡°İ
+	// ê¶Œì¢…ë³„ ê°€ê²©
 	
 	static final int baby_price = 0,
 					 adult_day_price = 56000, adult_night_price = 46000,
@@ -10,28 +10,28 @@ public class Constant {
 					 child_day_price = 44000, child_night_price = 37000,
 					 old_day_price = 44000, old_night_price = 37000;
 	
-	// ³ªÀÌ¿¡ µû¸¥ ¹üÀ§
+	// ë‚˜ì´ì— ë”°ë¥¸ ë²”ìœ„
 	
-	static final int min_baby = 1, min_child = 3, min_teen = 13, min_adult = 19,
+	static final int min_baby = 0, min_child = 3, min_teen = 13, min_adult = 19,
 					 max_child = 12, max_teen = 18, max_adult = 64;
 					  	
-	// ³ªÀÌ¿¡ µû¸¥ ±×·ì
+	// ë‚˜ì´ì— ë”°ë¥¸ ê·¸ë£¹
 	
-	static final String baby = "½Å»ı¾Æ", child = "¾ÆÀÌ", teen = "Ã»¼Ò³â", adult = "¾î¸¥", old = "³ëÀÎ";
+	static final String baby = "ì‹ ìƒì•„", child = "ì•„ì´", teen = "ì²­ì†Œë…„", adult = "ì–´ë¥¸", old = "ë…¸ì¸";
 	
-	// ÇÒÀÎÀ²
+	// í• ì¸ìœ¨
 	
 	static final double disable_rate = 0.6, merit_rate = 0.5, multichild_rate = 0.8, pregnant_rate = 0.85;
 	
-	// ÃÖ´ë ÁÖ¹®·®
+	// ìµœëŒ€ ì£¼ë¬¸ëŸ‰
 	
 	static final int max_count = 10, min_count = 1;
 	
-	// ÆÄÀÏ ÁÖ¼Ò
+	// íŒŒì¼ ì£¼ì†Œ
 	
-	static final String file_Address = "C:\\Users\\ÀÓ½Â¿ë\\Desktop\\TicketingData.csv";
+	static final String file_Address = "C:\\Users\\ì„ìŠ¹ìš©\\Desktop\\TicketingData.csv";
 	
-	// ÁÖ°£±Ç, ¾ß°£±Ç ¼±ÅÃ
+	// ì£¼ê°„ê¶Œ, ì•¼ê°„ê¶Œ ì„ íƒ
 			
 	static final int TYPE_DAY = 1;		   
 	static final int TYPE_NIGHT = 2;
